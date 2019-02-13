@@ -36,8 +36,7 @@ const addName = (div) => {
   main.appendChild(div);
 };
 
-const btn = document.querySelector("button");
-btn.addEventListener("click", () => {
+document.addEventListener("click", () => {
   removeName();
   addName(createName());
 });
