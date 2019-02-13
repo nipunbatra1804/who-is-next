@@ -19,30 +19,30 @@ const getName = () => {
   return names[index];
 };
 
-const removeName = () => {
+const removeNameElement = () => {
   const div = document.querySelector(".animated");
   div.remove();
 };
 
-const createName = () => {
+const createNameElement = () => {
   const div = document.createElement("div");
   div.classList.add("animated", "bounceIn");
   div.textContent = getName();
   return div;
 };
 
-const addName = (div) => {
+const addNameElement = div => {
   const main = document.querySelector("main");
   main.appendChild(div);
 };
 
-document.addEventListener("click", () => {
-  removeName();
-  addName(createName());
-});
+const handleEvent = event => {
+  const isClickEvent = event.type === "click";
+  const isEnterKeypress = event.type === "keypress" && event.key === "Enter";
+  if (!isClickEvent && !isEnterKeypress) return;
+  removeNameElement();
+  addNameElement(createNameElement());
+};
 
-document.addEventListener("keypress", event => {
-  if (event.key !== "Enter") return;
-  removeName();
-  addName(createName());
-});
+document.addEventListener("click", handleEvent);
+document.addEventListener("keypress", handleEvent);
