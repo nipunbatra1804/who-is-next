@@ -39,10 +39,15 @@ const addNameElement = div => {
 const handleEvent = event => {
   const isClickEvent = event.type === "click";
   const isEnterKeypress = event.type === "keypress" && event.key === "Enter";
-  if (!isClickEvent && !isEnterKeypress) return;
+  const isTouchEvent = event.type === "touchstart";
+  const isWantedEvent = isClickEvent || isEnterKeypress || isTouchEvent;
+
+  if (!isWantedEvent) return;
+
   removeNameElement();
   addNameElement(createNameElement());
 };
 
 document.addEventListener("click", handleEvent);
 document.addEventListener("keypress", handleEvent);
+document.addEventListener("touchstart", handleEvent);
