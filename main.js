@@ -49,11 +49,8 @@ const handleEvent = event => {
   addNameElement(createNameElement());
 };
 
-document.addEventListener("touchmove", event => {
-  event.preventDefault();
-});
+document.ontouchstart = e => e.preventDefault();
 
 document.addEventListener("click", handleEvent);
 document.addEventListener("keypress", handleEvent);
 document.addEventListener("touchstart", handleEvent);
-
