@@ -33,7 +33,8 @@ const createNameElement = () => {
 
 const addNameElement = div => {
   const main = document.querySelector("main");
-  main.appendChild(div);
+  const footer = document.querySelector("footer");
+  main.insertBefore(div, footer);
 };
 
 const handleEvent = event => {

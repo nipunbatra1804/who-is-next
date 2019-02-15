@@ -17,13 +17,13 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: center;
 }
 
 header {
   height: 10vh;
   margin: 1rem;
   padding: 1rem;
-  text-align: center;
   color: #001f3f;
 }
 
@@ -36,10 +36,20 @@ div {
   height: 10vh;
   margin: 1rem;
   padding: 1rem;
-  text-align: center;
-  color: #FF851B;
+  color: #ff851b;
   font-weight: bold;
   font-size: 4rem;
+}
+
+footer {
+  margin: 1rem;
+  padding: 1rem;
+  font-size: 0.8rem;
+  color: lightgrey;
+}
+
+footer a {
+  color: lightgrey;
 }
 
 kbd {
