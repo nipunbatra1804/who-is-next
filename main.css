@@ -1,15 +1,20 @@
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   height: 100vh;
   max-width: 700px;
   font-size: 2rem;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0 auto;
+  position: relative;
+  background-color: whitesmoke;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-color: whitesmoke;
 }
 
 main {
