@@ -44,7 +44,8 @@ const handleEvent = event => {
   const isWantedEvent = isClickEvent || isEnterKeypress || isTouchEvent;
 
   if (!isWantedEvent) return;
-
+  
+  event.preventDefault();
   removeNameElement();
   addNameElement(createNameElement());
 };
