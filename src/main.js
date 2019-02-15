@@ -1,15 +1,4 @@
-const names = [
-  "Hui Tian",
-  "Pi Wei",
-  "Ying Qi",
-  "Sabrina",
-  "Nicole",
-  "Pakata",
-  "Nipun",
-  "Jerome",
-  "Nicholas",
-  "Timothy"
-];
+import names from "./names.js";
 
 const getName = () => {
   const min = 0;
@@ -20,19 +9,19 @@ const getName = () => {
 };
 
 const getNonRecurringName = () => {
-  const currentName = getCurrentNameElement()
+  const currentName = getCurrentNameElement();
   let nextName;
 
   do {
-    nextName = getName()
-  } while (currentName === nextName)
+    nextName = getName();
+  } while (currentName === nextName);
 
   return nextName;
 };
 
 const getCurrentNameElement = () => {
   return document.querySelector(".animated").textContent;
-}
+};
 
 const removeNameElement = () => {
   const div = document.querySelector(".animated");
