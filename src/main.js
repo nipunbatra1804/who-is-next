@@ -1,6 +1,6 @@
 import names from "./names.js";
 
-const getName = () => {
+const getName = (names) => {
   const min = 0;
   const max = names.length - 1;
   const random = Math.random() * (max - min) + min;
@@ -13,7 +13,7 @@ const getNonRecurringName = () => {
   let nextName;
 
   do {
-    nextName = getName();
+    nextName = getName(names);
   } while (currentName === nextName);
 
   return nextName;
