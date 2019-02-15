@@ -19,15 +19,30 @@ const getName = () => {
   return names[index];
 };
 
+const getNonRecurringName = () => {
+  const currentName = getCurrentNameElement()
+  let nextName;
+
+  do {
+    nextName = getName()
+  } while (currentName === nextName)
+
+  return nextName;
+};
+
+const getCurrentNameElement = () => {
+  return document.querySelector(".animated").textContent;
+}
+
 const removeNameElement = () => {
   const div = document.querySelector(".animated");
   div.remove();
 };
 
-const createNameElement = () => {
+const createNameElement = name => {
   const div = document.createElement("div");
   div.classList.add("animated", "bounceIn");
-  div.textContent = getName();
+  div.textContent = name;
   return div;
 };
 
@@ -45,8 +60,11 @@ const handleEvent = event => {
 
   if (!isWantedEvent) return;
 
+  const name = getNonRecurringName();
   removeNameElement();
-  addNameElement(createNameElement());
+
+  const nameElement = createNameElement(name);
+  addNameElement(nameElement);
 };
 
 document.ontouchstart = e => e.preventDefault();
