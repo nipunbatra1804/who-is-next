@@ -54,6 +54,7 @@ footer {
 
 footer a {
   color: lightgrey;
+  text-decoration: none;
 }
 
 kbd {
