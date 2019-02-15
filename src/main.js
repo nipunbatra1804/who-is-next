@@ -1,10 +1,9 @@
 import names from "./names.js";
+import rng from "./randomizer.js";
 
 const getName = (names) => {
-  const min = 0;
   const max = names.length - 1;
-  const random = Math.random() * (max - min) + min;
-  const index = Math.floor(random);
+  const index = rng.range(max).random()
   return names[index];
 };
 
