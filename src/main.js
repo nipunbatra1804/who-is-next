@@ -1,14 +1,13 @@
 import names from "./names.js";
 import rng from "./randomizer.js";
 
-const getName = (names) => {
+const getName = names => {
   const max = names.length - 1;
-  const index = rng.range(max).random()
+  const index = rng.range(max).random();
   return names[index];
 };
 
-const getNonRecurringName = () => {
-  const currentName = getCurrentNameElement();
+const getNonRecurringName = currentName => {
   let nextName;
 
   do {
@@ -41,14 +40,24 @@ const addNameElement = div => {
 };
 
 const handleEvent = event => {
+  const keyboard = {
+    enter: 13,
+    space: 32
+  };
+
   const isClickEvent = event.type === "click";
-  const isEnterKeypress = event.type === "keypress" && event.key === "Enter";
   const isTouchEvent = event.type === "touchstart";
-  const isWantedEvent = isClickEvent || isEnterKeypress || isTouchEvent;
+  const isSpaceKey = event.type === "keypress" && event.which == keyboard.space;
+  const isEnterKey =
+    event.type === "keypress" && event.which === keyboard.enter;
+
+  const isWantedEvent =
+    isClickEvent || isEnterKey || isSpaceKey || isTouchEvent;
 
   if (!isWantedEvent) return;
 
-  const name = getNonRecurringName();
+  const currentName = getCurrentNameElement();
+  const name = getNonRecurringName(currentName);
   removeNameElement();
 
   const nameElement = createNameElement(name);
